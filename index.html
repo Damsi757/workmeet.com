@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkMeet — Hire and get hired</title>
+  <meta name="description" content="WorkMeet is a professional job network. Employers post roles. Candidates apply, share profiles, and message in one place.">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0a66c2">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" id="brand">
+      <div class="logo-mark">W</div>
+      WorkMeet
+    </div>
+    <div class="top-actions" id="guestActions">
+      <span id="syncBadgeGuest" class="badge badge-gray">Cloud</span>
+      <button class="btn btn-ghost" id="btnTopLogin">Sign in</button>
+      <button class="btn btn-primary" id="btnTopRegister">Create account</button>
+    </div>
+    <div class="top-actions hidden" id="userActions">
+      <span id="syncBadge" class="badge badge-gray">Cloud</span>
+      <div class="who">
+        <strong id="whoName"></strong>
+        <span id="whoRole"></span>
+      </div>
+      <button class="btn btn-ghost" id="btnLogout">Log out</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page view" id="view-landing">
+      <div class="hero">
+        <h1>The professional network for hiring and getting hired.</h1>
+        <p>Post a role, apply in one tap, and message people who already have an account. Profiles include experience, education, skills, and CV files.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="btnGetStarted">Create a free account</button>
+          <button class="btn btn-ghost" id="btnSignIn">Sign in</button>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="step-num">1</div>
+          <h3>Create your profile</h3>
+          <p class="muted">Add your photo, work experience, education, skills, and upload a CV.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">2</div>
+          <h3>Post or apply</h3>
+          <p class="muted">Employers put out a job slot. Employees search and click Apply.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">3</div>
+          <h3>Chat</h3>
+          <p class="muted">Message anyone who already has a WorkMeet account.</p>
+        </div>
+      </div>
+      <div class="home-preview" style="margin-top:28px;">
+        <h2>On WorkMeet today</h2>
+        <p class="muted">Open jobs, people already using the app, and ads from partner brands.</p>
+        <div class="grid-3" style="margin-top:14px;">
+          <div class="card">
+            <h3>Jobs</h3>
+            <p class="muted">Shop Assistant · Lagos · Part-time</p>
+            <p class="muted">Junior Graphic Designer · Abuja · Full-time</p>
+          </div>
+          <div class="card">
+            <h3>People using the app</h3>
+            <p class="muted">Damilola Kehinde · Founder</p>
+            <p class="muted">Amina Bello · Employer, BrightPath Foods</p>
+            <p class="muted">Chidi Okafor · Employee</p>
+          </div>
+          <div class="card">
+            <h3>Advertisements</h3>
+            <p class="muted">MEGEP PRINTS Lagos — printing and customization.</p>
+            <p class="muted">God's Antenna — faith, Open Heavens and gospel songs.</p>
+          </div>
+        </div>
+      </div>
+      <p class="footer-note">WorkMeet · Works offline · Syncs when you reconnect</p>
+    </section>
+
+    <section class="page view hidden" id="view-register">
+      <div class="auth-wrap">
+        <div class="card auth-card">
+          <h2>Create your account</h2>
+          <p class="muted">Use your email and create a password. Sign in with the same details next time.</p>
+          <div class="field">
+            <label>I am a</label>
+            <div class="role-pills">
+              <div class="role-pill active" id="pillEmployee">
+                <strong>Employee</strong>
+                <span class="muted">Find a role and apply</span>
+              </div>
+              <div class="role-pill" id="pillEmployer">
+                <strong>Employer</strong>
+                <span class="muted">Post slots and review applicants</span>
+              </div>
+            </div>
+          </div>
+          <div class="field"><label>Full name</label><input id="regName" placeholder="Your name"></div>
+          <div class="field"><label>Email</label><input id="regEmail" type="email" placeholder="you@email.com"></div>
+          <div class="field"><label>Create a password</label><input id="regPassword" type="password" placeholder="At least 6 characters"></div>
+          <div class="field"><label>Type the password again</label><input id="regPassword2" type="password" placeholder="Confirm password"></div>
+          <div class="field"><label>Company / business name (employers)</label><input id="regCompany" placeholder="Optional for employees"></div>
+          <p class="error" id="regError"></p>
+          <div style="margin-top:16px;"><button class="btn btn-primary" id="btnDoRegister" style="width:100%;">Create account</button></div>
+          <p class="muted" style="margin-top:12px;">Already have an account? <a href="#" id="linkToLogin">Sign in</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page view hidden" id="view-login">
+      <div class="auth-wrap">
+        <div class="card auth-card">
+          <h2>Sign in</h2>
+          <p class="muted">Enter the email and password for your account.</p>
+          <div class="field"><label>Email</label><input id="loginEmail" type="email" placeholder="Your email"></div>
+          <div class="field"><label>Password</label><input id="loginPassword" type="password" placeholder="Your password"></div>
+          <p class="error" id="loginError"></p>
+          <div style="margin-top:16px;"><button class="btn btn-primary" id="btnDoLogin" style="width:100%;">Sign in</button></div>
+          <p class="muted" style="margin-top:12px;">New here? <a href="#" id="linkToRegister">Create account</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page view hidden" id="view-app">
+      <div class="app-layout">
+        <aside class="side" id="sideNav"></aside>
+        <div id="mainArea"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="cloud.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    }
+  </script>
+</body>
+</html>
